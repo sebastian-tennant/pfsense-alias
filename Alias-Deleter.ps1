@@ -11,7 +11,7 @@
 # Generally use Starlink for game updates, etc - but when playing online, it is better to be routed through NBN.
 
 ### You'll need to change: ###
-# Line 40 and 49 to be the client ID and token provided by pfSense API
+# Line 41 and 49 to be the client ID and token provided by pfSense API
 # Line 43 and 52 to point to your pfSense FQDN.
 
 Function Menu 
