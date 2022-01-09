@@ -12,7 +12,8 @@
 
 ### You'll need to change: ###
 # Line 41 and 49 to be the client ID and token provided by pfSense API
-# Line 43 and 52 to point to your pfSense FQDN.
+# Line 44 and 52 to point to your pfSense FQDN.
+# Line 44 and 52 to suit your alias name and internal IP address
 
 Function Menu 
 {
