@@ -1,5 +1,6 @@
-﻿#pfSense host deleter script
+﻿##### pfSense host adder/deleter #####
 # Author: Sebastian Tennant
+# Yes, the script could be a lot better. It was made in about 30 mins. 
 
 # Dependancies: https://github.com/jaredhendrickson13/pfsense-api 
 # set to API Token authentication
@@ -7,7 +8,11 @@
 # Comments:
 # This was designed so I could easily take my gaming computer in and out of an alias group within my pfSense router
 # I have two internet connections, one though HFC (NBN Australia) and the other through Starlink. Starlink is faster, but NBN has better latency as it isn't satellite.
-# I generally use Starlink for game updates, etc - but when playing online, it is better to be routed through NBN.
+# Generally use Starlink for game updates, etc - but when playing online, it is better to be routed through NBN.
+
+### You'll need to change: ###
+# Line 40 and 49 to be the client ID and token provided by pfSense API
+# Line 43 and 52 to point to your pfSense FQDN.
 
 Function Menu 
 {
@@ -33,7 +38,6 @@ Function Menu
            1 
             {
 $headers=@{}
-$headers.Add("user-agent", "vscode-restclient")
 $headers.Add("authorization", "X X")
 $headers.Add("content-type", "application/json")
 $response = Invoke-WebRequest -Uri 'https://pfsense.internal.tennant.id.au/api/v1/firewall/alias/entry' -Method DELETE -Headers $headers -ContentType 'application/json' -Body '{"name": "NBN_Primary","address": ["10.4.20.140"]}'
@@ -42,7 +46,6 @@ $response = Invoke-WebRequest -Uri 'https://pfsense.internal.tennant.id.au/api/v
             2 
             {
 $headers=@{}
-$headers.Add("user-agent", "vscode-restclient")
 $headers.Add("authorization", "X X")
 $headers.Add("content-type", "application/json")
 $response = Invoke-WebRequest -Uri 'https://pfsense.internal.tennant.id.au/api/v1/firewall/alias/entry' -Method POST -Headers $headers -ContentType 'application/json' -Body '{"name": "NBN_Primary","address": ["10.4.20.140"]}'
